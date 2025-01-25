@@ -1,0 +1,546 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Jersey+15&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Font face */
+@font-face {
+    font-family: 'BebasNeue-Regular';
+    src: url('../fonts/BebasNeue-Regular.woff2') format('woff2'),
+         url('../fonts/BebasNeue-Regular.woff') format('woff'),
+         url('../fonts/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Switzer-Bold';
+    src: url('../fonts/Switzer-Bold.woff2') format('woff2'),
+         url('../fonts/Switzer-Bold.woff') format('woff'),
+         url('../fonts/Switzer-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+/* Selector */
+::-moz-selection { /* Code for Firefox */
+    color: #ff0000;
+    background: yellow;
+}
+  ::selection {
+    color: #ff0000;
+    background: yellow;
+  }
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #aaaaaa);;
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #ffffff;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    position: sticky;
+    color: black;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 30px;
+    font-family: 'BebasNeue-Regular';
+    font-weight: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+nav ul li a.active {
+    color: #ff4081;
+    font-weight: bold;
+    border-bottom: 0.4px solid #ff5733; /* Garis bawah aktif */
+}
+
+nav ul li a:hover {
+    color: #ff4081;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 100px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+article, aside {
+    background: transparent;
+}
+
+.scroll-animation {
+    width: 100%;
+    height: 50vh;
+    background-color: rgb(0, 0, 0);
+    backdrop-filter: blur(30px);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+#about {
+    /* background-image: url('/2022-Porsche-911-GT3-007-1080.jpg'); */
+    grid-column: 1/4;
+    height: 100vh;
+    box-shadow: 0px 20px 50px 10px rgba(58, 54, 54, 0.938);
+    transition: background-size 10s ease-in-out, background-image 1s ease-in-out;
+    -webkit-transition: background-size 10s ease-in-out, background-image 1s ease-in-out;
+    -moz-transition: background-size 10s ease-in-out, background-image 1s ease-in-out;
+    -ms-transition: background-size 10s ease-in-out, background-image 1s ease-in-out;
+    -o-transition: background-size 10s ease-in-out, background-image 1s ease-in-out;
+}
+
+.wrapper-about {
+    background-color: rgba(0, 0, 0, 0.352);
+    box-sizing: border-box;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#about h2 {
+    font-family: 'BebasNeue-Regular';
+    font-size: 40px;
+    max-width: 500px;
+    position: absolute;
+    margin: 0 10px 10px 50px;
+    left: 10%;
+    top: 300px;;
+    color: #ff4081;
+}
+
+#about p {    
+    max-width: 500px;
+    position: absolute;
+    margin: 0 10px 50px 50px;
+    left: 10%;
+    top: 50%;
+}
+
+
+#image {
+    grid-row: 2;
+    grid-column: 1/4;
+    background: transparent;
+    height: 170vh;
+}
+
+#image a {
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid whitesmoke;
+}
+
+
+img {
+    aspect-ratio: 1/1;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version */
+}
+
+.img-column {
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p {
+    margin: 25px;
+}
+
+#image ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adds space between the images */
+    padding: 0;
+    list-style: none;
+}
+
+.image-container {
+    border-radius: 9px;
+    position: relative;
+    overflow: hidden;
+    /*Ensurestheoverlaystayswithintheimagebounds*/
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+}
+
+#image img {
+    display: block;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    scale: 1;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#image h2 {
+    color: black;
+    font-family: 'BebasNeue-Regular';
+    font-size: 40px;
+}
+
+.center-image {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    margin-top: 20px; /* Add some space above the image */
+    position: relative;
+    top: 390px;
+}
+
+.center-image h1 {
+color: rgba(0, 0, 0, 0.481);
+font-family: "Orbitron", serif;
+font-size: 11em;
+position: absolute;
+top: -290px;
+line-height: 1;
+text-shadow: 1px 20px 10px #2c2c2cb3;
+}
+
+.center-image h3 {
+    font-family: "Orbitron", sans-serif;
+    position: absolute;
+    font-size: 2em;
+    top: 310px;
+    border-bottom: 0.1px solid brown;
+    font-style: italic;
+}
+
+.f1-car {
+    width: 100%;
+    position: fixed;
+    /*Maketheimagetakeup100%ofthewidth*/height: auto;
+    /*Maintainaspectratio*/object-fit: cover;
+    aspect-ratio: 16/9;
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0 0 100px #bbff00);
+        -webkit-filter: drop-shadow(20px 30px 10px #2c2c2c75);
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*Semi-transparentblackbackground*/color: #ffffff;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+}
+
+.image-container:hover .overlay {
+    opacity: 1; /* Shows overlay text on hover */
+}
+
+#projects {
+    background-image:
+    url('https://w.wallhaven.cc/full/z8/wallhaven-z8dxmw.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100vh;
+    grid-column: 1/4;
+    box-shadow: inset 2px 2px 200px 20px rgb(255, 255, 255);
+}
+
+#projects h2 {
+    font-family: 'BebasNeue-Regular';
+    font-weight: 100;
+    font-size: 40px;
+    padding-top: 150px;
+    margin: 0 250px 0 250px;
+    color: #ffffff;
+    line-height: 1;
+}
+
+/* carousel */
+
+/* end */
+
+.project-container {
+    display: block;
+    position: relative;
+}
+
+.project-container img {
+    width: 450px;
+    height: 450px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 10%;
+    top: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.project-container button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 10px;
+    position: absolute;
+    top: 210%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*Centerhorizontallyandvertically*/-webkit-user-select: none;
+    /*Safari*/-moz-user-select: none;
+    /*Firefox*/-ms-user-select: none;
+    /*InternetExplorer/Edge*/user-select: none;
+    /*Non-prefixedversion*/
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+
+.project-container button:hover {
+    background-color: grey;
+    transition: all 150ms ease-in-out;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    box-shadow: 0 0 10px 1px white;
+}
+
+.project-container a {
+    text-decoration: none;
+    font-family: 'Montserrat', serif;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+#founder {
+    grid-row: 4;
+    grid-column: 1/4;
+    background-color: #222831;
+    height: 100vh;
+}
+
+#founder h2 {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-family: 'BebasNeue-Regular';
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    font-weight: 400;
+
+}
+
+#founder h1 {
+    font-family: 'BebasNeue-Regular';
+    font-size: 20em;
+    top: 300px;
+    position: relative;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.248);
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}
+
+#founder img {
+        width: 100%;
+        /*Ensuretheimageadaptstothecontainer*/max-width: 900px;
+        /*Setamaximumwidthfortheimage*/height: auto;
+        /*Maintaintheaspectratio*/display: block;
+        /*Preventinlineelementsfromaddingextraspace*/margin: 0 auto;
+        /*Centertheimage*/object-fit: contain;
+        /*Makesuretheimagefitswithinitsboxwithoutcropping*/position: absolute;
+        top: 38px;
+        filter: drop-shadow(0 0 100px #bbff00);
+        -webkit-filter: drop-shadow(0 0 100px #76ABAE);
+}
+
+.wrapper-founder {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version */
+}
+
+#founder p {
+    position: absolute;
+    max-width: 880px;
+    top: 290px;
+    left: 520px;
+}
+
+footer {
+    height: 200px;
+    position: relative;
+    bottom: -100px;
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-top: auto;
+    margin-top: 150px;
+    background: rgba(0, 0, 0, 0);
+    max-width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.178);
+}
+
+footer ul li {
+    list-style-type: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: left;
+    align-items: start;
+    justify-content: start;
+}
+
+footer li {
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    scale: 1;
+    width: 100px;
+}
+
+footer li:hover{
+    transform: scale(1.20);
+}
+
+footer p {
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.credit {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 90px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    width: 50%;
+    text-align: center;
+    transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+}
+
